@@ -18,11 +18,11 @@ type TrackingCardProps = {
 export const TrackingCard = ({ item, ...props }: TrackingCardProps) => {
   return (
     <Card
-      className="overflow-hidden border-l-4 border-l-primary shadow-sm hover:shadow-md transition-shadow py-0"
+      className="overflow-hidden border-l-4 border-l-primary shadow-sm hover:shadow-md transition-shadow py-0 h-full flex flex-col"
       {...props}
     >
-      <CardHeader className="bg-muted/40 pb-3 pt-6">
-        <div className="flex justify-between items-start">
+      <CardHeader className="bg-muted/40 pb-3 pt-6 min-h-[140px]">
+        <div className="flex justify-between items-start flex-col gap-2">
           <div>
             <CardTitle className="text-lg flex items-center gap-2 text-foreground">
               <Package className="h-5 w-5 text-primary" />
@@ -31,13 +31,13 @@ export const TrackingCard = ({ item, ...props }: TrackingCardProps) => {
             <CardDescription>Pedido: {item.orderNumber}</CardDescription>
           </div>
 
-          <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+          <span className="inline-flex items-center rounded-sm bg-primary/10 px-2.5 py-1 text-xs font-small text-primary">
             {item.statusTitle}
           </span>
         </div>
       </CardHeader>
 
-      <CardContent className="grid gap-4 py-4 md:grid-cols-2">
+      <CardContent className="grid gap-4 py-4 md:grid-cols-2 flex-1">
         <div className="space-y-1">
           <div className="flex items-center text-sm text-muted-foreground">
             <MapPin className="mr-2 h-4 w-4" />
@@ -54,7 +54,7 @@ export const TrackingCard = ({ item, ...props }: TrackingCardProps) => {
           <p className="font-medium text-foreground">{item.dateTime}</p>
         </div>
 
-        <div className="col-span-1 md:col-span-2 space-y-1 bg-muted/50 p-3 rounded-md border border-border/50">
+        <div className="col-span-1 md:col-span-2 space-y-1 bg-muted/50 p-3 rounded-md border border-border/50 h-[180px] overflow-y-auto">
           <p className="text-sm text-foreground">
             <strong className="font-semibold">Detalhes:</strong>{" "}
             {item.statusDetails}
