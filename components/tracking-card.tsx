@@ -80,7 +80,7 @@ export const TrackingCard = ({ item, ...props }: TrackingCardProps) => {
               rel="noopener noreferrer"
             >
               <ExternalLink className="mr-2 h-4 w-4" />
-              Ver rastreamento completo no site da SSW
+              Detalhes da Encomenda
             </a>
           </Button>
         </CardFooter>
