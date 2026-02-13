@@ -9,4 +9,21 @@ interface TrackingItem {
   detailsLink: string;
 }
 
-export type { TrackingItem };
+interface TrackingHistory {
+  date: string;
+  time: string;
+  location: string;
+  statusTitle: string;
+  statusDescription: string;
+}
+
+interface TrackingDetailsResponse {
+  header: {
+    recipient: string;
+    invoiceNumber: string;
+    orderNumber: string;
+  };
+  history: TrackingHistory[];
+}
+
+export type { TrackingItem, TrackingHistory, TrackingDetailsResponse };
