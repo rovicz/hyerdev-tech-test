@@ -13,21 +13,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { TrackingCard } from "@/components/tracking-card";
 import { TrackingItem } from "@/app/types/Tracking";
+import { parseDate } from "@/lib/utils";
 
 interface OrdersListProps {
   data: TrackingItem[];
   onViewDetails: (order: TrackingItem) => void;
 }
-
-const parseDate = (dateStr: string) => {
-  if (!dateStr) return 0;
-  const [datePart, timePart] = dateStr.split(" ");
-  if (!datePart) return 0;
-  const [day, month, year] = datePart.split("/").map(Number);
-  const [hour, minute] = timePart ? timePart.split(":").map(Number) : [0, 0];
-  const fullYear = year < 100 ? 2000 + year : year;
-  return new Date(fullYear, month - 1, day, hour, minute).getTime();
-};
 
 const ITEMS_PER_PAGE = 3;
 
@@ -46,7 +37,7 @@ export function OrdersList({ data, onViewDetails }: OrdersListProps) {
 
     if (searchTerm) {
       result = result.filter((item) =>
-        item.orderNumber.toLowerCase().includes(searchTerm.toLowerCase())
+        item.orderNumber.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     }
 
@@ -58,7 +49,7 @@ export function OrdersList({ data, onViewDetails }: OrdersListProps) {
   }, [data, sortOrder, searchTerm]);
 
   const totalPages = Math.ceil(filteredAndSortedData.length / ITEMS_PER_PAGE);
-  
+
   const paginatedData = React.useMemo(() => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     return filteredAndSortedData.slice(startIndex, startIndex + ITEMS_PER_PAGE);

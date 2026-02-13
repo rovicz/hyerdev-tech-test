@@ -25,26 +25,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { TrackingHistory } from "@/app/types/Tracking";
+import { parseDateTime } from "@/lib/utils";
 
 interface TrackingDetailsProps {
   history: TrackingHistory[];
 }
 
 const ITEMS_PER_PAGE = 6;
-
-const parseDateTime = (dateStr: string, timeStr: string) => {
-  if (!dateStr) return 0;
-  const parts = dateStr.split("/");
-  if (parts.length < 3) return 0;
-  const [day, month, year] = parts.map(Number);
-
-  const [hour, minute] = timeStr ? timeStr.split(":").map(Number) : [0, 0];
-
-  // Handle 2-digit years if necessary, though typical is 4
-  const fullYear = year < 100 ? 2000 + year : year;
-
-  return new Date(fullYear, month - 1, day, hour || 0, minute || 0).getTime();
-};
 
 export function TrackingDetails({ history }: TrackingDetailsProps) {
   const [currentPage, setCurrentPage] = useState(1);
