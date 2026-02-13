@@ -74,11 +74,7 @@ export const TrackingCard = ({ item, ...props }: TrackingCardProps) => {
             className="w-full bg-background hover:bg-muted"
             asChild
           >
-            <a
-              href={item.detailsLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a>
               <ExternalLink className="mr-2 h-4 w-4" />
               Detalhes da Encomenda
             </a>
