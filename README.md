@@ -1,4 +1,4 @@
-# 📦 SSW Tracking Scraper
+# 📦 Rastreamento - SSW PF (Hyerdev Tech Test)
 
 Uma aplicação web moderna para rastreamento de encomendas da transportadora SSW, desenvolvida como desafio técnico. O projeto realiza o scraping dos dados diretamente do sistema da SSW e os apresenta em uma interface limpa e responsiva.
 
