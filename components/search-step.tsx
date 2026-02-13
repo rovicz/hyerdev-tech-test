@@ -23,23 +23,23 @@ export function SearchStep({
   return (
     <section className="space-y-4 text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
       <h1 className="text-3xl font-bold tracking-tight text-foreground">
-        Rastreamento SSW
+        Rastreamento por Pessoa Física
       </h1>
       <p className="text-muted-foreground">
         Digite seu CPF abaixo para localizar suas encomendas.
       </p>
 
       <Card className="mx-auto max-w-md shadow-lg border-muted">
-        <CardContent className="pt-6">
+        <CardContent>
           <form onSubmit={handleTrack} className="flex gap-2">
             <Input
               placeholder="Digite o CPF (apenas números)"
               value={cpf}
               onChange={(e) => setCpf(e.target.value)}
-              className="flex-1 bg-background"
+              className="flex-1 bg-background h-[40px]"
               maxLength={14}
             />
-            <Button type="submit" disabled={loading}>
+            <Button type="submit" disabled={loading} className="h-[40px]">
               {loading ? (
                 <span className="animate-spin">⌛</span>
               ) : (
